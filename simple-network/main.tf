@@ -12,6 +12,7 @@ resource "aws_subnet" "snet_public_a" {
   count             = var.create_public_snet ? 1 : 0
   vpc_id            = aws_vpc.main.id
   cidr_block        = var.snet_public_cidr
+  map_public_ip_on_launch                        = true
   availability_zone = "${var.region}a"
   tags = {
     Name = "snet-public-a"
